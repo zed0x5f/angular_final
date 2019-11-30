@@ -1,0 +1,22 @@
+li {
+    list-style-type: square;
+}
+
+.container {
+    display: flex;
+    flex-direction: column
+}
+
+.row {
+    display:row;
+}
+
+.title {
+    font-size: 1.5em;
+    float: none;
+    text-align: start;
+}
+
+p {
+    font-size: 1.2em;
+}

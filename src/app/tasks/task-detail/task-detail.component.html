@@ -1,0 +1,12 @@
+<li>
+  <div class="container">
+    <div class="title">
+      ID:{{task.id}}&nbsp;<span>{{task.title}}</span>&nbsp;Priority:{{task.priority}}
+    </div>
+    <p>{{task.description}}</p>
+    <div class="row">
+      <button (click)="onClickView()">View</button>
+      <button (click)="onDelete()">Delete</button>
+    </div>
+  </div>
+</li>
