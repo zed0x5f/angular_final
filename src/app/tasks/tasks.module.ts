@@ -6,22 +6,23 @@ import { TaskListComponent } from './task-list/task-list.component';
 import { TaskDetailComponent } from './task-detail/task-detail.component';
 import { TaskCreateComponent } from './task-create/task-create.component';
 import { TaskPageComponent } from './task-page/task-page.component';
-
+const components = [
+  TaskListComponent,
+  TaskCreateComponent,
+  TaskPageComponent,
+]
 @NgModule({
   declarations: [
-    TaskListComponent,
+    // @ts-ignore
+    ...components,
     TaskDetailComponent,
-    TaskCreateComponent,
-    TaskPageComponent
   ],
   imports: [
     CommonModule,
     HttpClientModule
   ],
   exports: [
-    TaskListComponent,
-    TaskCreateComponent,
-    TaskPageComponent
+    ...components
   ]
 })
 export class TasksModule { }

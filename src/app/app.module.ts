@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { TasksModule } from './tasks/tasks.module';
+import { MyroutesModule } from './myroutes.module';
 
 @NgModule({
   declarations: [
@@ -11,6 +12,7 @@ import { TasksModule } from './tasks/tasks.module';
   imports: [
     BrowserModule,
     TasksModule,    
+    MyroutesModule
   ],
   providers: [],
   bootstrap: [AppComponent]
