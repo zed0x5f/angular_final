@@ -6,11 +6,11 @@ import { TasksModule } from './tasks/tasks.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
-    TasksModule
+    TasksModule,    
   ],
   providers: [],
   bootstrap: [AppComponent]
