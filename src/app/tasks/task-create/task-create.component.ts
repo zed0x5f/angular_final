@@ -9,15 +9,13 @@ import { TaskService } from '../task.service';
 })
 export class TaskCreateComponent implements OnInit {
   model: Task = new Task();
-  constructor(service: TaskService) {
-
-  }
+  constructor(private taskService: TaskService) { }
 
   ngOnInit() {
 
   }
 
   onSubmit() {
-    console.log('Submit Successful: ', this.model);
+    this.taskService.createTask(this.model)
   }
 }

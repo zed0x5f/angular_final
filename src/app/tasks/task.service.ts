@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Task } from '../shared/models/task';
-
+let blog = (e) => console.log(e);
 
 @Injectable({
   providedIn: 'root'
@@ -23,8 +23,9 @@ export class TaskService {
     return this.request({ params: { 'id': myID } }).subscribe((g) => lambda(g[0]));
   }
 
-  createTask() {
+  createTask(arr) {
     //TODO:
+    blog(arr)
   }
 
   updateTask() {
