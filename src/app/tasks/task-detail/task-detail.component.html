@@ -4,8 +4,8 @@
       ID:{{task.id}}&nbsp;<span>{{task.title}}</span>&nbsp;Priority:{{task.priority}}
     </div>
     <p>{{task.description}}</p>
-    <div class="row">
-      <button (click)="onClickView()">View</button>
+    <div class="row">      
+      <a [routerLink]="['/detail', task.id]">View</a>
       <button (click)="onDelete()">Delete</button>
     </div>
   </div>

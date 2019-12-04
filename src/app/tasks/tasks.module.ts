@@ -6,6 +6,7 @@ import { TaskListComponent } from './task-list/task-list.component';
 import { TaskDetailComponent } from './task-detail/task-detail.component';
 import { TaskCreateComponent } from './task-create/task-create.component';
 import { TaskPageComponent } from './task-page/task-page.component';
+import { RouterModule } from '@angular/router';
 const components = [
   TaskListComponent,
   TaskCreateComponent,
@@ -19,7 +20,8 @@ const components = [
   ],
   imports: [
     CommonModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule
   ],
   exports: [
     ...components

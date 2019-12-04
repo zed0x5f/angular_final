@@ -11,7 +11,9 @@ import { MyroutesModule } from './myroutes.module';
   ],
   imports: [
     BrowserModule,
-    TasksModule,    
+    TasksModule,
+    //myroutes must be last to be imported
+    //ya fool  
     MyroutesModule
   ],
   providers: [],
