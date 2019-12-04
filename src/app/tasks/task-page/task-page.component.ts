@@ -1,12 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-//why do i want to use this?
-import { switchMap } from 'rxjs/operators';
 
 import { Task } from 'src/app/shared/models/task';
-import { ActivatedRoute, Router, ParamMap } from '@angular/router';
+import { ActivatedRoute, ParamMap } from '@angular/router';
 import { TaskService } from '../task.service';
 
-let blog = (arg) => console.log(arg);
+let blog = (arg: any) => console.log(arg);
 
 @Component({
   selector: 'app-task-page',
@@ -18,29 +16,20 @@ export class TaskPageComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private router: Router,
+    //not being used
+    //private router: Router,
     private service: TaskService
   ) { }
 
-  ngOnInit() {
-    let me = this;//currently unescessary
-    let blog = (e: any) => console.log(e);
-    //console.log(this.route);    
-    var id: string;
+  getTask() {
     this.route.paramMap.subscribe(
       (params: ParamMap) => {
-        //blog('task 2');
-        id = params.get('id');
+        this.service.getTask(params.get('id'), (e: Task) => { this.task = e; });
       }
     )
-    blog('task');
-    blog(id)
-    var foo = this.service.getTask(id, (e) => {
-      blog('task page e')
-      me.task = e;
-      blog(this === me);
-    });
-    blog(foo)
-    blog(this.task)
+  }
+
+  ngOnInit() {
+    this.getTask();
   }
 }

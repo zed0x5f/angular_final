@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Task } from 'src/app/shared/models/task';
 import { TaskService } from '../task.service';
 
@@ -19,7 +18,7 @@ export class TaskListComponent implements OnInit {
   }
 
   getTasks(): void {
-    this.taskService.subscribe(tasks => {
+    this.taskService.subscribe((tasks: Task[]) => {
       this.tasks = tasks;
     });
   }

@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
-
+import { HttpClient } from '@angular/common/http';
 import { Task } from '../shared/models/task';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-let blog = (arg) => console.log(arg);
+
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +11,7 @@ export class TaskService {
   tasks: Task[];
   constructor(private http: HttpClient) { }
 
-  private request(options?) {
+  private request(options?: any) {
     return this.http.get<Task[]>(this.taskRoute, options)
   }
 
@@ -20,13 +19,15 @@ export class TaskService {
     return this.request().subscribe(e => lambda(e));
   }
 
-  getTask(myID, lambda: Function) {
-    return this.request({ params: { 'id': myID.toString() } }).subscribe(
-      (g) => {
-        //works so far
-        //blog(e[0]);
-        return lambda(g[0]);
-      }
-    );
+  getTask(myID: string, lambda: Function) {
+    return this.request({ params: { 'id': myID } }).subscribe((g) => lambda(g[0]));
+  }
+
+  createTask() {
+    //TODO:
+  }
+
+  updateTask() {
+    //TODO:
   }
 }

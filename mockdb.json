@@ -2,15 +2,15 @@
     "tasks": [
         {
             "id": 0,
-            "title": "lawn",
+            "timeToCompleteInMinutes": 60,
             "description": "mow the lawn",
-            "priority": "low"
+            "requiredItems": "lawnmower, hat, sunscreen"
         },
         {
             "id": 1,
-            "title": "dishes",
+            "timeToCompleteInMinutes": "30",
             "description": "wash them dishes",
-            "priority": "low"
+            "requiredItems": "sponge, soap"
         }
     ]
 }
