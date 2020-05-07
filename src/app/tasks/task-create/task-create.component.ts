@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { Task } from 'src/app/shared/models/task';
 import { TaskService } from '../task.service';
 
@@ -9,13 +9,16 @@ import { TaskService } from '../task.service';
 })
 export class TaskCreateComponent implements OnInit {
   model: Task = new Task();
+  @Output() taskEmitted = new EventEmitter();
+
   constructor(private taskService: TaskService) { }
 
-  ngOnInit() {
-
-  }
+  ngOnInit() { }
 
   onSubmit() {
-    this.taskService.createTask(this.model)
+    this.taskService.createTask(this.model, e => {
+      //console.log("task emiited:", e)
+      this.taskEmitted.emit(e)
+    })
   }
 }

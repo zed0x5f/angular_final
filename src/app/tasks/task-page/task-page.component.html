@@ -1,9 +1,28 @@
 <div>
   <a [routerLink]="['/home']">Go home</a><br>
-  <div>ID:{{task.id}}</div>
-  <div>description:{{task.description}}</div>
-  <div>requiredItems:{{task.requiredItems}}</div>
-  <h3>
-    Needs to have the functionality to update this guy
-  </h3>
+  <div>ID:{{model.id}}</div>
+  <div>
+    <form (ngSubmit)="onSubmit()">
+      <div>
+        <label for="description">
+          description
+        </label>
+        <input id="description" type="text" name="description" required [(ngModel)]="model.description">
+      </div>
+      <div>
+        <label for="requiredItems">
+          requiredItems
+        </label>
+        <input id="requiredItems" type="text" name="requiredItems" [(ngModel)]="model.requiredItems">
+      </div>
+      <div>
+        <label for="timeToCompleteInMinutes">
+          timeToCompleteInMinutes
+        </label>
+        <input id="timeToCompleteInMinutes" type="text" name="timeToCompleteInMinutes"
+          [(ngModel)]="model.timeToCompleteInMinutes">
+      </div>
+      <button class="button" type="submit">Update</button>
+    </form>
+  </div>
 </div>

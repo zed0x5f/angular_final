@@ -1,10 +1,10 @@
 <div class="tasks">
-  <app-task-create></app-task-create>
+  <app-task-create (taskEmitted)="taskCatcher($event)"></app-task-create>
   <h2>
     Tasks:
   </h2>
   <ul>
-    <app-task-detail *ngFor="let task of tasks" [task]="task">
+    <app-task-detail *ngFor="let task of tasks" [task]="task" (taskDeleted)="deleteTask($event)">
     </app-task-detail>
   </ul>
 </div>

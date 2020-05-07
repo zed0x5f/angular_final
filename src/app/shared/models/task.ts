@@ -1,6 +1,6 @@
 export class Task {
     id: number;
-    timeToCompleteInMinutes: number;    
+    timeToCompleteInMinutes: number;
     description: string;
     requiredItems: string;
 }

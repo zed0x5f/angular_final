@@ -12,24 +12,28 @@ let blog = (arg: any) => console.log(arg);
   styleUrls: ['./task-page.component.css']
 })
 export class TaskPageComponent implements OnInit {
-  public task: Task;
+  public model: Task;
 
   constructor(
     private route: ActivatedRoute,
-    //not being used
-    //private router: Router,
-    private service: TaskService
+    private taskService: TaskService
   ) { }
 
-  getTask() {
+  buggyGetTask() {
     this.route.paramMap.subscribe(
       (params: ParamMap) => {
-        this.service.getTask(params.get('id'), (e: Task) => { this.task = e; });
+        this.taskService.getTask(parseInt(params.get('id')), (e: Task) => { this.model = e; });
       }
     )
   }
 
   ngOnInit() {
-    this.getTask();
+    this.buggyGetTask();
+  }
+  onSubmit() {
+    this.taskService.updateTask(this.model.id, e => {
+      //console.log("task emiited:", e)
+      this.model = e
+    })
   }
 }
